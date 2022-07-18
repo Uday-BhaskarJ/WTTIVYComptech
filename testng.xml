@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="IVYHP">
+  <test name="HPFunctionalTest">
+    <classes>
+      <class name="testcases.IvyLogin"/>
+      <class name="testcases.ClientSelect"/>
+      <class name="testcases.ScanUnit"/>
+      <class name="testcases.ScreenTitle"/>
+      <class name="testcases.ScreenImplementation"/>
+    </classes>
+  </test> <!-- HPFunctionalTest -->
+</suite> <!-- IVYHP -->
