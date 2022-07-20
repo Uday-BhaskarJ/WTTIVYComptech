@@ -6,24 +6,25 @@ import org.testng.annotations.Test;
 import base.BasicBaseFile;
 
 public class ScreenTitle extends BasicBaseFile {
-	public static String screen_Name;
+	public String screen_Name;
+	
+	@Test(priority = 1, description = "Getting the screen Name")
+	public void screen_title() throws InterruptedException {
 
-	@Test
-	public static void screen_title() {
-
-		screen_Name = driver.findElement(By.xpath(
-				"/html/body/app-root/app-base/app-sub-process/mat-drawer-container/mat-drawer-content/div/app-page/header/app-toolbar/mat-toolbar/mat-toolbar-row/app-title"))
-				.getText();
-
+		Thread.sleep(8000);
+		
+		if(prop.getProperty("Client").equalsIgnoreCase("HP")) {
+		screen_Name = driver.findElement(By.xpath("//*[@id=\"undefined\"]/mat-toolbar-row/app-title/p/span")).getText();
+		
 		if (screen_Name.equalsIgnoreCase("Burn-In")) {
-
 		}
 
 		else {
-			System.out.println("Page is not yet loaded");
+			System.out.println(screen_Name +"Page is not yet loaded");
 
 		}
 
 	}
 
+}
 }

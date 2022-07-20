@@ -7,48 +7,64 @@ import org.testng.annotations.Test;
 
 import base.BasicBaseFile;
 
+
+
+
 public class ClientSelect extends BasicBaseFile {
-	@Test(priority = 1, description = "selection of Location as Bydgoszcz")
-	public static void Location() throws InterruptedException {
-		if (prop.getProperty("Client").equalsIgnoreCase("HP")) {
-			Thread.sleep(10000);
-			WebElement Loc_Ddown = driver.findElement(By.xpath(
-					"/html/body/app-root/app-base/app-side-nav/mat-drawer-container/mat-drawer[1]/div/div/footer/app-dropdown[1]/div/select"));
+	
+		
+	// Selecting Client Location Drop down
+	@Test(priority = 1, description = "selection of Client Location")
+	public void Location() throws InterruptedException {	
+		Thread.sleep(10000);
+		// Getting the Client location Drop down path
+		WebElement  Client_Location =driver.findElement(By.xpath("(//select[@class='body body2 dashbord-dropdown ng-untouched ng-pristine ng-valid'])[1]"));
+		
+		  Select objSelect = new Select(Client_Location);
+		  // selecting the drop down value
+		  objSelect.selectByVisibleText(prop.getProperty("Location"));
+		  Thread.sleep(1000);
+		}
+			
+	
 
-			Select Loc_Select = new Select(Loc_Ddown);
-			Loc_Select.selectByVisibleText("Bydgoszcz");
-			Thread.sleep(2000);
-
+	
+    // Selection of Client
+	@Test(priority = 2, description = "selection of Client ")
+	public void Client_Selection() {
+		// Getting the Client path
+		WebElement  Client_Dropdown =driver.findElement(By.xpath("(//select[@class='body body2 dashbord-dropdown ng-untouched ng-pristine ng-valid'])[2]"));
+		//Initializing the client drop down
+		Select objSelect = new Select(Client_Dropdown);
+		
+		if (prop.getProperty("Client").equalsIgnoreCase("DELL CAR")) {
+			//selecting the Drop down value for Dell Car
+			objSelect.selectByVisibleText("DELL");						
+		}
+		
+		else if(prop.getProperty("Client").equalsIgnoreCase("HP")) {
+			//selecting the Drop down value for Dell Car
+			objSelect.selectByVisibleText("HP");				
 		}
 
 	}
-
-	// CLient Drop down selection
-	@Test(priority = 2, description = "selection of Client as HP")
-	public static void Client() throws InterruptedException {
-		if (prop.getProperty("Client").equalsIgnoreCase("HP")) {
-			WebElement Client_Ddown = driver.findElement(By.xpath(
-					"/html/body/app-root/app-base/app-side-nav/mat-drawer-container/mat-drawer[1]/div/div/footer/app-dropdown[2]/div/select"));
-
-			Select CLient_Select = new Select(Client_Ddown);
-			CLient_Select.selectByVisibleText("HP");
-			Thread.sleep(2000);
-
+	
+	
+	@Test(priority = 3, description = "selection of Operation ")
+	public void Client_Operation() {		
+		WebElement  Client_Operat = driver.findElement(By.xpath("(//select[@class='body body2 dashbord-dropdown ng-untouched ng-pristine ng-valid'])[2]"));
+		Select Client_Oper = new Select(Client_Operat);
+		
+		if (prop.getProperty("Client").equalsIgnoreCase("DELL CAR")) {
+			Client_Oper.selectByVisibleText("CAR");
+						
 		}
+		else if(prop.getProperty("Client").equalsIgnoreCase("HP")) {
+			//selecting the Drop down value for Dell Car
+			Client_Oper.selectByVisibleText("COMMERCIAL");
 
-	}
+	    }
 
-	@Test(priority = 3, description = "selection of Operation as WC OPERATION")
-	public static void Openratiom() {
-		if (prop.getProperty("Client").equalsIgnoreCase("HP")) {
-			WebElement Ope_Ddown = driver.findElement(By.xpath(
-					"/html/body/app-root/app-base/app-side-nav/mat-drawer-container/mat-drawer[1]/div/div/footer/app-dropdown[3]/div/select"));
-
-			Select Ope_Select = new Select(Ope_Ddown);
-			Ope_Select.selectByVisibleText("COMMERCIAL");
-
-		}
-
-	}
-
+     }
+	
 }
