@@ -9,8 +9,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.testng.ITestResult;
+import org.testng.annotations.AfterMethod;
 import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.testng.annotations.BeforeSuite;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 
@@ -20,7 +22,7 @@ public class BasicBaseFile {
 
 	public static Properties prop = new Properties();
 
-	@BeforeTest
+	@BeforeSuite
 	public void setUP() throws IOException {
 		if (driver == null) {
 			FileR = new FileReader(
@@ -56,6 +58,13 @@ public class BasicBaseFile {
 		driver.get(prop.getProperty("url")); // Getting the URL of the Website
 		driver.manage().window().maximize();
 
+	}
+	
+	@AfterMethod
+    public void tearDownMethod(ITestResult result) {
+    if(ITestResult.FAILURE==result.getStatus()) {
+        Utility.captureScreenshot(driver,result.getName());
+    }
 	}
 
 	@AfterTest

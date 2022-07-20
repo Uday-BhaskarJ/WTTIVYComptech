@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="IVYHP">
+    <listeners>
+        <listener class-name="base.ExtentReporterNG" />
+    </listeners>
+  <test name="LogInFunctionalTest">
+    <classes>
+      <class name="testcases.IvyLogin"/>
+      <class name="testcases.ClientSelect"/>
+      <class name="testcases.ScanUnit"/>
+      <class name="testcases.ScreenTitle"/>
+     
+    </classes>
+  </test> <!-- LoginFunctionalTest -->
+  
+  <test name="HPFunctionalTest">
+    <classes>
+        <!--<class name="testcases.HP_AssessmentScreen"/>-->
+        <class name="testcases.BurnIn"/>
+        <!-- <class name="testcases.HP_MBRepair"/> -->
+    </classes>
+    
+  
+  </test> <!-- HPFunctionalTest -->
+ 
+</suite> <!-- IVYHP -->

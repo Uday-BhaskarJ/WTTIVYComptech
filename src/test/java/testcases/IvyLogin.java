@@ -1,11 +1,8 @@
 package testcases;
 
-
-
 import org.apache.logging.log4j.*;
 import org.openqa.selenium.By;
 import org.testng.annotations.Test;
-
 import base.BasicBaseFile;
 
 public class IvyLogin extends BasicBaseFile{
@@ -25,7 +22,7 @@ public class IvyLogin extends BasicBaseFile{
 		
 		driver.findElement(By.xpath("/html/body/app-root/app-base/app-form-panel/div/mat-card/mat-card-actions/app-button/div/button")).click();
 		WttLogger.info("Login is sucessfull");
-		System.out.println("print");
+		
 	}
 
 	//Business Method
@@ -38,3 +35,5 @@ public class IvyLogin extends BasicBaseFile{
 	
 	
 }
+
+

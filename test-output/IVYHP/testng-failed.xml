@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
 <suite name="Failed suite [IVYHP]" guice-stage="DEVELOPMENT">
+  <listeners>
+    <listener class-name="base.ExtentReporterNG"/>
+  </listeners>
   <test thread-count="5" name="HPFunctionalTest(failed)">
     <classes>
-      <class name="testcases.ScreenImplementation">
+      <class name="testcases.BurnIn">
         <methods>
-          <include name="Screen"/>
           <include name="teardown"/>
+          <include name="tearDownMethod"/>
+          <include name="PrintLabel"/>
           <include name="setUP"/>
         </methods>
-      </class> <!-- testcases.ScreenImplementation -->
+      </class> <!-- testcases.BurnIn -->
     </classes>
   </test> <!-- HPFunctionalTest(failed) -->
 </suite> <!-- Failed suite [IVYHP] -->
